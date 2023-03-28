@@ -1,3 +1,25 @@
+body{
+    text-align:center;
+}
 h1{
+    padding: 15px;
+    font-size:50px;
+    font-family:serif;
+}
+p{
+    padding:5px;
+    padding-left:20px;
+    padding-right:20px;
+    text-align: left;
+    line-height:normal;
+}
+h2{
+    padding:5px;
+    padding-top:20px;
+    padding-bottom:20px;
+    font-size:25px;
+    font:bold;
+}
+.dispResult{
     font-size:40px;
 }

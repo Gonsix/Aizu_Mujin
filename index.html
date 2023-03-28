@@ -2,6 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8">
+    <!-- ビューポートの設定 -->
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Faucet Demo</title>
     <!--css-->
     <link rel="stylesheet" href="./css/html5reset-1.6.1.css">
@@ -12,31 +14,59 @@
 </head>
 <body>
 	<h1>会津無尽</h1>
-	会津無尽へようこそ。このサイトは現在開発テスト段階です。
-	<h3>現在の皆様の積立金</h3>
-	<span id="result"></span>
+    <br>
+	<p>会津無尽へようこそ。このサイトは現在開発テスト段階です。</p>
+    <br>
+	<h2>現在の皆様の積立金</h2>
+    <br><br>
+	<span class="dispResult" id="result"></span><!--Do not change this id, because Aizu_Mujin using this-->
+	   AM_TOKEN<br>
 	<br>
-	<p>Faucetのデモサイト</p>
-	<button type=“button” onclick="getERC20TokenBalance();">チェック用トークンをゲットする!</button>
 	<br>
 	<br>
+	<h2>会津無尽へ参加するには</h2>
+    <p>
+        会津無尽へようこそ。このサイトは現在開発テスト段階です。<br>
+        実際にご利用になりたい方は”Metamask”というアプリケーションを入れてください。<br>
+        そこで、新たなあなたのウォレットを作りましょう！<br>
+        実際にAM_TOKENを手に入れるには管理者への問い合わせが必要です。<br>
+        下記にご連絡ください。<br>
+        <br>
+        test@test.com<br>
+    </p>
+    <br>
+    <h2>あなたのAM_TOKEN残高を確認</h2>
+    <div class="form-example">
+        あなたのウォレットアドレスを入力してください：
+        <br>
+        <br>
+        <input type="text" name="myAddress" id="myAddress" oninput="onAddressChange();">
+        <br>
+        <br>
+        <span class="dispResult" id="result2">----------</span><!--Do not change this id, because Aizu_Mujin using this-->
+        AM_TOKEN<br>
+    </div>
+    <br>
+    <h2>困っている人へ寄付をする</h2>
+    <div class="form-example"></div>
+        <p>
+            現在困っている人へ仲間全員の温情をプレゼント<br>
+            でも、気をつけてください。<br>
+            みんなで集めた全てのトークンを送ります。<br>
+        </p>
+        <br>
+        トークンを送るアドレス：
+        <br>
+        <br>
+        <input type="text" name="toAddress" id="toAddress">
+    </div>
+    <br> 
+    <br>   
+    <div class="form-example">
+        <input type="submit" value="会津無尽" onclick="//function">	
+    </div>
 	<br>
-	<!--Komeda's Test-->
-	<p>会津無尽へ金額を寄付</p>
-	<!-- <form class="form-example" > -->
-	<form onsubmit="send();">
-		<div class="form-example">
-			<label for="price">Enter the price you want to donate: </label>
-			<input type="text" name="price" id="price" required>
-		</div>
-		<br>
-		<div class="form-example">
-			<input type="submit" value="Submit" onclick="">	
-		</div>
-	</form>
-	<br>
-	<h3>Transaction</h3>
-	<span id="transaction"></span>
+    <br>
 </body>
 </html>
 </body>
