@@ -1,4 +1,4 @@
-# Aizu_Muzin
+# Aizu Mujin
 
 ## Member
 
