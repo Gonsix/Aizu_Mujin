@@ -1,1 +1,44 @@
-test komeda
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Faucet Demo</title>
+    <!--css-->
+    <link rel="stylesheet" href="./css/html5reset-1.6.1.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <!--js-->
+	<script src="./js/web3.min.js"></script>
+	<script src="./js/Aizu_Muzin.js"></script>
+</head>
+<body>
+	<h1>会津無尽</h1>
+	会津無尽へようこそ。このサイトは現在開発テスト段階です。
+	<h3>現在の皆様の積立金</h3>
+	<span id="result"></span>
+	<br>
+	<p>Faucetのデモサイト</p>
+	<button type=“button” onclick="getERC20TokenBalance();">チェック用トークンをゲットする!</button>
+	<br>
+	<br>
+	<br>
+	<!--Komeda's Test-->
+	<p>会津無尽へ金額を寄付</p>
+	<!-- <form class="form-example" > -->
+	<form onsubmit="send();">
+		<div class="form-example">
+			<label for="price">Enter the price you want to donate: </label>
+			<input type="text" name="price" id="price" required>
+		</div>
+		<br>
+		<div class="form-example">
+			<input type="submit" value="Submit" onclick="">	
+		</div>
+	</form>
+	<br>
+	<h3>Transaction</h3>
+	<span id="transaction"></span>
+</body>
+</html>
+</body>
+</html>
+
