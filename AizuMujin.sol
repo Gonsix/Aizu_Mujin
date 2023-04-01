@@ -24,6 +24,10 @@ interface ERC20 {
     function transfer(address recipient, uint256 amount)
         external
         returns (bool);
+
+    function allowance(address owner, address spender) external view returns (uint);
+    function transferFrom(address sender, address recipient, uint amount) external returns (bool);
+    function approve(address spender, uint amount) external returns (bool);
  
 }
 
@@ -37,23 +41,43 @@ contract MBTFaucet {
     
     // For rate limiting
     mapping(address=>uint256) nextRequestAt;
+    mapping(address=>string) addrToName;
 
     // No.of tokens to send when requested
     uint256 faucetDripAmount = 0;//ここで送金する数を変えられます。
 
     // Sets the addresses of the Owner and the underlying token
-    constructor (address _mbtAddress, address _ownerAddress) {
+    constructor (address _mbtAddress) {
+        // _mbtAddress = 0xa4A0D40F7A1b5348979F73a6c54d1245e928f2Af;
         token = ERC20(_mbtAddress);//個々の二つを直でかいてもよさそう
-        owner = _ownerAddress;//
-
     } 
 
-    // Verifies whether the caller is the owner 
-    modifier onlyOwner{//ここ
+    // Verifies whether the caller is the owner d
+    modifier onlyOwner{
         require(msg.sender == owner,"FaucetError: Caller not owner");
         _;
     }
-    
+
+    modifier checkAllowance(uint amount) { // 追加
+        require(token.allowance(msg.sender, address(this)) >= amount, "Not allowed to deposit this amount of tokens !");
+        _;
+    }
+
+    function getContractBalance() external view returns(uint) {
+        return token.balanceOf(address(this));
+    }
+
+    // function nyukin(uint _amount) external {
+
+    //     token.transfer(address(this), _amount);
+    // }   
+
+
+
+    function depositTokens(uint _amount) public checkAllowance(_amount) {
+        token.transferFrom(msg.sender, address(this), _amount);
+    }
+
     // Sends the amount of token to the caller.
     function send() external {
         require(token.balanceOf(address(this)) > 1,"FaucetError: Empty");
@@ -66,8 +90,9 @@ contract MBTFaucet {
 
         faucetDripAmount = token.balanceOf(address(this));//追加した部分
         
-        token.transfer(msg.sender,faucetDripAmount * 10**token.decimals());
-    }  
+        token.transfer(msg.sender,faucetDripAmount);
+    } 
+
     
     // Updates the underlying token address
      function setTokenAddress(address _tokenAddr) external onlyOwner {
