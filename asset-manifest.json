@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Aizu_Mujin/static/css/main.c42470c4.css",
+    "main.js": "/Aizu_Mujin/static/js/main.c2f934c1.js",
+    "index.html": "/Aizu_Mujin/index.html",
+    "main.c42470c4.css.map": "/Aizu_Mujin/static/css/main.c42470c4.css.map",
+    "main.c2f934c1.js.map": "/Aizu_Mujin/static/js/main.c2f934c1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c42470c4.css",
+    "static/js/main.c2f934c1.js"
+  ]
+}
