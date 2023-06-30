@@ -28,6 +28,8 @@ let currentAccount; //user wallet address.
 let provider = null; //Like Metamask.
 let signer = null;  //the signature from currentAccount, used to interact with Blockchain.
 let balance = 0; //temp variableConnectionButtons to get blance of Token from address.
+
+
 export default function Dapp() {
     const [toggle,setToggle] = useState(false);//for send button 
     const [toggle2,setToggle2] = useState(false);//for All Token send button 
@@ -96,6 +98,9 @@ export default function Dapp() {
                 alert("Connecting canceled or Error occured")
             }
             console.log(provider);
+            signer = await provider.getSigner();
+            const walletAddress = await signer.getAddress();
+            console.log("Wallet address ", walletAddress);
         }
     }
     //to trnsact to blockchain, if you want to know about siner, please go to the Official Documentation
