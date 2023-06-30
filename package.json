@@ -1,10 +1,13 @@
 {
+  "homepage" :"https://gonsix.github.io/Aizu_Mujin",
   "name": "aizu_mujin_frontend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "cd frontend && gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +17,7 @@
     "hardhat": "^2.16.1"
   },
   "dependencies": {
-    "ethers": "^6.6.2"
+    "ethers": "^6.6.2",
+    "gh-pages": "^5.0.0"
   }
 }
