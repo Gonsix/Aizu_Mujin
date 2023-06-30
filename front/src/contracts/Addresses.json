@@ -1,0 +1,19 @@
+{
+    "AizuMujinWalletAddress":[
+        {
+            "address": "0xCC106Fd59Ce735E3f510fbA9b1C369752f25bBD4"
+        }
+    ],
+    "AizuMujin Contract Address": [
+        
+        {
+        "address": "0x07CDBed21422e7B7B258a80B07CA813Bcf4D7e5A"
+        }
+    ],
+    "TokenAddress": [
+        {
+        "address": "0xf8C0f8499147ac28387d2d6394E3bD94D1Bb061e",
+        "symbol": "AMT"
+        }
+    ]
+}
