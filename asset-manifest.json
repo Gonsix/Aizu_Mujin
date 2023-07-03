@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Aizu_Mujin/static/css/main.ac6133d7.css",
-    "main.js": "/Aizu_Mujin/static/js/main.864200c4.js",
+    "main.js": "/Aizu_Mujin/static/js/main.3134e69b.js",
     "index.html": "/Aizu_Mujin/index.html",
     "main.ac6133d7.css.map": "/Aizu_Mujin/static/css/main.ac6133d7.css.map",
-    "main.864200c4.js.map": "/Aizu_Mujin/static/js/main.864200c4.js.map"
+    "main.3134e69b.js.map": "/Aizu_Mujin/static/js/main.3134e69b.js.map"
   },
   "entrypoints": [
     "static/css/main.ac6133d7.css",
-    "static/js/main.864200c4.js"
+    "static/js/main.3134e69b.js"
   ]
 }
