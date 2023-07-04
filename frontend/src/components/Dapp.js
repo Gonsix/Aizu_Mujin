@@ -1,6 +1,6 @@
 import {useState} from 'react';
 //Import React Containers
-import { ethers } from "ethers";        
+import { N, ethers } from "ethers";        
 
 //import Contracts json
 import TokenABI from "../contracts/AizuMujinToken.json";
@@ -28,7 +28,7 @@ let currentAccount; //user wallet address.
 let provider = null; //Like Metamask.
 let signer = null;  //the signature from currentAccount, used to interact with Blockchain.
 let balance = 0; //temp variableConnectionButtons to get blance of Token from address.
-
+let walletAddress = NaN
 
 export default function Dapp() {
     const [toggle,setToggle] = useState(false);//for send button 
@@ -71,8 +71,8 @@ export default function Dapp() {
     {
         try{
             await _connectWallet();
-            activateFunc(false);//Connecting button disabled
             await _makeSigner();//current account signature
+            activateFunc(false);//Connecting button disabled
             await _getAccount();//current account address
             await _makeContract(TAddress,TokenABI.abi,tokenContract);// Token Contract Instance
             await _makeContract(AMujinAddress,AMujinABI.abi,aizuMujinContract);// AizuMujin Contract Instance
@@ -98,9 +98,7 @@ export default function Dapp() {
                 alert("Connecting canceled or Error occured")
             }
             console.log(provider);
-            signer = await provider.getSigner();
-            const walletAddress = await signer.getAddress();
-            console.log("Wallet address ", walletAddress);
+
         }
     }
     //to trnsact to blockchain, if you want to know about siner, please go to the Official Documentation
@@ -108,6 +106,9 @@ export default function Dapp() {
     {
         signer = await provider.getSigner();
         console.log("Signer: " + signer);
+        walletAddress = await signer.getAddress();
+        walletAddress = walletAddress.slice(0, 8) + "..." 
+
     }
 
     //e.g.) _makeContract(the address of which you wan to get functions,
@@ -151,7 +152,7 @@ export default function Dapp() {
 
     }
 
-    async function _getAccount() {
+    async function _getAccount(walletAddress) {
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
         .catch((err) => {
             if (err.code === 4001) {
@@ -169,9 +170,11 @@ export default function Dapp() {
     //After the connection to this page, connectBtn must be inactivated.
     function activateFunc(_activate)
     {
+    
         if(provider != null && _activate===false)
-        {
-            document.getElementById('connectBtnTxt').innerHTML ="ウォレット接続済み";
+        {  
+            console.log("Wallet address ", walletAddress);
+            document.getElementById('connectBtnTxt').innerHTML =walletAddress;
             document.getElementById('connectBtn').setAttribute("disabled", true);
             document.getElementById('connectBtn').classList.replace('btnUnconnected', 'btnConnected')
             document.getElementById('marupochi').classList.replace('marupochiGlay', 'marupochiGreen')
